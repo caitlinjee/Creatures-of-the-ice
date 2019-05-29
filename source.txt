@@ -97,6 +97,13 @@ Taking inventory is acting confused. Looking is acting confused. Examining an ex
 
 After acting confused for the third turn: 
 	say "[italic type](If you are feeling lost, try typing [bold type]HELP[roman type][italic type] for suggestions.)[roman type]"
+	
+
+Every turn when the player is not in the Unknown or the Unknown Room:
+	if a random chance of 1 in 7 succeeds:
+		say "[one of]You feel like you hear footsteps, but that might just be your imagination. [or]You feel as if you're not alone, but you haven't seen any sign of life so far.[or]You keep feeling a sense of unease, like someone is watching you.[at random]".
+	
+
 
 
 
@@ -202,6 +209,7 @@ After reading a command when the command prompt is "Would you like to try again?
 
 
 The Library is a room. "[if unvisited] You enter a large room, filled with shelves upon shelves of books, all lined up in a few rows. Many books are arranged neatly on the shelves, hiding their knowledge within.  Soft lights dot the black ceiling. It’s dimmer than your room, but bright enough that you don’t have to strain your eyes. It already feels calmer than the invasive white that previously surrounded you. You can feel the warmer air wrapping around you, taking away the chill in your body.[line break][line break][italic type](Remember to type [bold type]'help'[roman type][italic type] if you get stuck.)[roman type][otherwise] The soft lights and the subtle scent of old books welcome you back into the room.[end if]" 
+
 
 The mirror is in the Library. It is fixed in place. "Mounted on one of the walls is a large mirror.". The description is "It’s a normal mirror, with a golden frame. You look into it and step back in surprise. You don’t recognize the face in the mirror, and yet it’s somehow familiar. You raise your arms, and the figure in the mirror follows. You make a face, and your reflection makes the same face back. That confirms it, it’s you. You rack your brain for any memory of how you looked like, any memory at all.[line break][line break]Nothing.". Understand "large mirror" as mirror.
 
@@ -316,6 +324,8 @@ After reading a command when the command prompt is "Do you want to continue read
 
 The Greenhouse is a room. "[if unvisited] It appears to be a greenhouse, but the denseness of flora make it seem like a forest, if not for the harsh artificial lighting hurting your eyes. It’s an immensely large room, you can’t see the ends of it. Plants of all kind, most of which you don’t recognize, fill your vision, stretching across the room. Flowers of all types decorate the room, like a symphony of colours. In the middle of the room is the biggest tree you've ever seen, you don't think you can even wrap your hands around the trunk. [line break][line break] You look up and are filled with wonder. The ceiling is shaped like a dome, and it’s made of glass, letting you see the sky above. You didn't notice at first, but beyond the plants, one of the walls, and even the floor are made of glass too. You can only see black, blackness everywhere. Stars decorate the gaping dark emptiness outside, like the brushstrokes of an artist on an empty canvas. You can see the curved surface of a light blue planet far away, leaving virtually no doubt where you are. [line break][line break] Out in the middle of nothing, with the scent of nature around you, you feel at peace. [otherwise if the sphere is switched on]The warm humidity of the greenhouse has made your damp clothes stick uncomfortably to your back. Above, the empty space feels strangely comforting and yet suffocating at the same time. [line break][line break]The sphere suddenly beeps loudly a few times, then rolls to a wall of flowers. Its pink lights grow in intensity, it seems very interested in the flowers. [otherwise]  The warm humidity of the greenhouse has made your damp clothes stick uncomfortably to your back. Above, the empty space feels strangely comforting and yet suffocating at the same time.[end if]"
 
+
+
 The glass door is an open door. The glass door is north of the Library and south of the Greenhouse. "A glass door leads [if the player is in the library]north. [otherwise]south.[end if]". The description is "You can see through the glass door into the next room, [if the player is in the library] filled with green plants. [otherwise] filled with books.[end if]"
 
 The secret door is a locked door. It is east of the greenhouse and west of the Laboratory. The description is "A door, completely hidden by the thick wall of flora. You probably wouldn't have even found it if not for Maega or the sphere. It leads east.". Understand "hidden door" as secret door. The gold key unlocks the secret door.
@@ -381,7 +391,7 @@ Carry out cutting it with:
 	increment the count of cuts of the noun.
 
 Report cutting it with: 
-	say "You cut [the noun] with [the second noun]."
+	say "You cut [the noun] with [the second noun]. Now the key is on the floor."
 	
 Definition: a thing is cut if the count of cuts of it > 0. A thing has a number called the count of cuts. 
 	
@@ -397,6 +407,8 @@ The Upper Greenhouse is a room. "The staircase brings you closer to the dark not
 The scissors is a blade in the upper greenhouse. "A glint of light draws your eye to a pair of scissors sitting on a nearby table,". The description is "A pair of sharp scissors, probably for trimming leaves."
 
 The bench is a enterable supporter in the upper greenhouse. "A bench is tucked among the plants." The description is "A simple marble bench, cool to the touch."
+
+The little table is scenery in the upper greenhouse. The description is "A little table. Nothing odd about it.". Understand "table" as little table.
 
 Instead of entering the bench:
 	say "You take a seat on the bench to marvel at the wonders around you. The smell of nature filling your senses, the inky blackness of the sky above and below you, all fill you with a sense of peace. It's as if you're looking down on everything, on all of creation. With the limitless stretch of just... [italic type]life[roman type] facing you, you choose to rest for a little while longer."
@@ -654,19 +666,23 @@ Instead of switching off the sphere:
 
 
 	
-The Laboratory is a room. "You find yourself in a room you can only describe as a laboratory. It's not that big of a room, and everything looks to be in its place. The grey surface of the tables around you reflect the lights on the ceiling. One table is scattered with medical instruments, while another has beakers of chemicals and various scientific equipment. There are a few cupboards in the room. Through the glass doors, you can see various glass beakers, test tubes and measuring cylinders. In one corner of the room, there's a raised platform of some kind on the ground, something like a round stage. It seems to be a strange machine, but you have no idea what is it.[line break][line break] You feel like you hear footsteps, but that might just be your imagination."
+The Laboratory is a room. "You find yourself in a room you can only describe as a laboratory. It's not that big of a room, and everything looks to be in its place. The grey surface of the tables around you reflect the lights on the ceiling. One table is scattered with medical instruments, while another has beakers of chemicals and various scientific equipment. There are a few cupboards in the room. Through the glass doors, you can see various glass beakers, test tubes and measuring cylinders. In one corner of the room, there's a raised platform of some kind on the ground, something like a round stage. It seems to be a strange machine, but you have no idea what is it."
 
 The tablet is in the Laboratory. It is fixed in place."A tablet is on one of the tables. The brightness of its lit screen catches your eye.". The description is "A white tablet, roughly the size of a book. Its current screen is showing a document. ". The printing is "You read the document on the tablet. [line break][line break][bold type][player's forename] (#HY90LJ)[roman type][line break][italic type]Original life form, cooperating and working smoothly. Needs incentive to work from time to time. Duplicates are all under suspended animation. Brain activity and metabolic rate low, body temperature at −313°C. Subject 4 has been moved to the next room and is currently undergoing testing. Subject 3 has gone into shock after test 6, may need to modify some calculations. Speed of cell regeneration same as before.[roman type][line break][line break] Below that are a few pictures of... yourself? Or rather, the person you saw in the mirror. Some of them are of you handling beakers, some of you writing, some of you standing on the machine in the room, with a soft white glow coming from it. It's one of the final pictures that chills you. In it, you're lying on a table, with your eyes closed. But now, the colour of the face isn't green like in your reflection. The colour of its skin has changed to a light blue, but you're sure it's the same face, the same body. You're not sure why you feel a sense of dread from staring at that picture. [line break][line break] There's also a strange diagram showing what seems to be the machine in the room. It's labelled and what looks like instructions are written beneath the diagram, but you don't fully understand them. It seems that the machine can be used to isolate cells that can regenerate rapidly and replicate the biological data. There's also a function on the machine that lets it speed up cell regeneration by using a kind of light, but it hasn't been perfected yet. It's still in the testing stage.[line break][line break]At the bottom of the page is seven buttons, each labelled with the number 1-7. All the buttons are coloured red, except for the seventh button, which is green.[roman type]". Understand "document" as tablet.
 
-
+The buttons is in the laboratory.
 After reading the tablet:
-	now the command prompt is "Which button do you press? (1 - 9) >"
+	now the command prompt is "Which button do you press? (1 - 7) >"
 	
-After reading a command when the command prompt is "Which button do you press? (1 - 9) >":
+After reading a command when the command prompt is "Which button do you press? (1 - 7) >":
 	increment the turn count;
 	if the player's command matches "4": 
 		now the sliding door is unlocked;
 		say "The originally red button turns green. The black door slides open, leading east. It's dark in the other room. [line break]";
+		now the command prompt is ">";
+	otherwise if the player's command matches "7":
+		now the black door is locked;
+		say "The originally green button turns red. You're not quite sure what that did, but it must have done something.";
 		now the command prompt is ">";
 	otherwise:
 		say "Nothing happens. Maybe you should try the other buttons.";
@@ -676,7 +692,9 @@ After reading a command when the command prompt is "Which button do you press? (
 
 The instruments are scenery in the Laboratory. The description is "So much scientific equipment, appropriate for a laboratory.". Understand "medical instruments" and "beakers" and " test tubes" and "chemicals" and "equipment" and "scientific equipment" as instruments.
 
-The platform is scenery in the Laboratory. The description is "A circular platform, raised slightly above the ground. You have no idea what it's used for. A small monitor is on the side of the machine, but it's currently dark. You feel like you shouldn't touch it.".
+The platform is scenery in the Laboratory. The description is "A circular platform, raised slightly above the ground. You have no idea what it's used for. A small monitor is on the side of the machine, but it's currently dark. You feel like you shouldn't touch it.". Understand "machine" and "stage" as platform.
+
+The science table is scenery in the Laboratory. The description is "The tables in the room are full of many things.". Understand "table" as science table.
 
 After reading the tablet:
 	now secret door is locked.
@@ -684,7 +702,7 @@ After reading the tablet:
 Instead of taking the tablet:
 	say "You should just leave it here."
 
-The tea is in the Laboratory. "On one of the tables is a warm cup of tea.". The description is "The cup of tea is warm to the touch. Smoke rises from the top of the cup. It smells sweet.". 
+The tea is in the Laboratory. "On one of the tables is a warm cup of tea.". The description is "The cup of tea is warm to the touch. Smoke rises from the top of the cup. It smells sweet.". Understand "cup" and "cup of tea" as tea.
 
 Instead of taking the tea:
 	say "You feel like you shouldn't take it."
@@ -739,7 +757,7 @@ After reading a command when the command prompt is "What will you do? (Run, Hide
 After reading a command when the command prompt is "Run left or right? (Left or Right) >":
 	if the player's command matches "Left": 
 		now the command prompt is ">...";
-		say "There's no time to think, you choose the left path. You crouch down, trying to avoid the plants. The sharp tips of the branches snag on your clothes, cutting your face. You sweat drips into your eyes, stinging them. You wipe the sweat away from your forehead. The blood from your cuts comes off onto the back of your hands, the red a stark contrast against your green skin. You try to use your arms to block your face, but it does little to shield you from the branches. Still, you can feel your wounds healing themselves, your bleeding slowing until it stops.[line break][line break]You keep running, hoping the vast size of the room can help you lose your pursuer. Finally, you slow to a stop, your heart sinking. A wall of vines prevents you from going any further. Dead end, nowhere to go. With no other choice, you turn to face yourself. [player's forename]'s run turns into an easy walk. You desperately try to find any other way out, but every other direction is blocked by plants, and you're much too tired to put up any fight. Breathless, you let [player's forename] grab onto your arm. Maybe it was your imagination, but you think you saw a hint of unease on their face as they pull out a syringe and sink it into your neck. Hopelessly, you fight against the drug as everything fades away...[line break][line break]You should fight it, but... do you?";
+		say "There's no time to think, you choose the left path. You crouch down, trying to avoid the plants. The sharp tips of the branches snag on your clothes, cutting your face. You sweat drips into your eyes, stinging them. You wipe the sweat away from your forehead. The blood from your cuts comes off onto the back of your hands, the red a stark contrast against your green skin. You try to use your arms to block your face, but it does little to shield you from the branches. Still, you can feel your wounds healing themselves, your bleeding slowing until it stops.[line break][line break]You keep running, hoping the vast size of the room can help you lose your pursuer. Finally, you slow to a stop, your heart sinking. A wall of vines prevents you from going any further. Dead end, nowhere to go. With no other choice, you turn to face yourself. [player's forename]'s run turns into an easy walk. You desperately try to find any other way out, but every other direction is blocked by plants, and you're much too tired to put up any fight. Breathless, you let [player's forename] grab onto your arm. Maybe it was your imagination, but you think you saw a hint of unease on their face as they pull out a syringe and sink it into your neck. Helplessly, you try to fight against the drug as everything fades away...[line break][line break]You should fight it, but... do you?";
 		say line break;
 		say run paragraph on;
 		reject the player's command;
@@ -792,23 +810,15 @@ After reading a command when the command prompt is "You have a pair of scissors 
 
 
 
-[WHAT'S YOUR NAME? if matches player name then
-
-player name... sorry.]
-
-
-
-
-
 After reading a command when the command prompt is ">...":
 	if the player's command matches "yes":
-		end the story saying "YE You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of.. sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
+		end the story saying "'...yes,' you hear [player's forename] through the haze in your head, 'I'm sorry, you did your best...' [line break] You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise if the player's command matches "no":
-		end the story saying "NO You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of.. sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
-	[otherwise if the player's command matches "[player's forename]":
-		say "test";]
+		end the story saying "'...no,' you hear [player's forename] through the haze in your head, 'it didn't have to be like this...' [line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
+	otherwise if the player's command matches the regular expression "[player's forename]":
+		end the story saying "'...[player's forename],' you hear through the haze in your head, 'good job...'[line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise:
-		say "Yes, you think you should... or, no, It's time to give up...";
+		say "Yes, you think you should... or, no, it's time to give up...";
 		now the command prompt is ">...";
 		reject the player's command.
 
