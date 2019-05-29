@@ -8,6 +8,7 @@ Release along with an introductory booklet.
 
 
 
+
 The story title is "Creatures of the Ice".
 The story headline is "Project: Interactive Fiction". 
 The story creation year is 2019.
@@ -99,9 +100,9 @@ After acting confused for the third turn:
 	say "[italic type](If you are feeling lost, try typing [bold type]HELP[roman type][italic type] for suggestions.)[roman type]"
 	
 
-Every turn when the player is not in the Unknown or the Unknown Room:
+Every turn when the player is not in the Unknown or the player is not in the Unknown Room:
 	if a random chance of 1 in 7 succeeds:
-		say "[one of]You feel like you hear footsteps, but that might just be your imagination. [or]You feel as if you're not alone, but you haven't seen any sign of life so far.[or]You keep feeling a sense of unease, like someone is watching you.[at random]".
+		say "[one of]You feel like you hear footsteps, but that might just be your imagination. [line break][or]You feel as if you're not alone, but you haven't seen any sign of life so far.[or]You feel a gnawing sense of unease, like someone is watching you.[at random]".
 	
 
 
@@ -112,6 +113,8 @@ Every turn when the player is not in the Unknown or the Unknown Room:
 The Unknown is a room. "You’re in a small room. The whiteness of the walls almost hurts your eyes. Everything looks so cold, not unlike how you feel right now. [line break][line break] [italic type]( If you haven't played interactive fiction before and need help, please type '[bold type]help[roman type]' [italic type]and hit enter.)[roman type]"
 
 The table is here. It is fixed in place. "Next to you is a little black table." The description of the table is "It's a little black table. Nothing special about it."  Understand "black table" as table.
+
+The walls is scenery in the unknown. The description is "The walls are very white.". Understand "wall" as walls.
 
 The pod is here. It is fixed in place. "Behind you is the object where you fell out of. It looks like a giant pod, resembling a coffin." The description of the pod is "The pod looks just big enough to fit a person inside. You run your fingers down the side of the pod. While you were freezing inside, the outside feels like just cool metal, far from the low temperature you were just trapped in. On the door is the number '7' written in black, almost hidden against the dark metallic surface."  Understand "coffin" and "object" as the pod. 
 
@@ -179,7 +182,7 @@ After reading a command when the command prompt is "Please enter the password no
 	increment the turn count;
 	if the player's command matches "2563": 
 		now the black door is unlocked;
-		say "**BUZZ**  The light on the keypad blinks green and the door slides open, leading north.";
+		say "You hear a beep. The light on the keypad blinks green and the door slides open, leading north.";
 		now the command prompt is ">";
 	otherwise:
 		say "The light on the keypad blinks red. Maybe you should look around the room a bit more, the correct password might be somewhere in here.";
@@ -216,7 +219,7 @@ The mirror is in the Library. It is fixed in place. "Mounted on one of the walls
 [instead of looking into mirror:
 	try examining mirror]
 
-The desk is in the Library. It is fixed in place. "A lone desk sits in the middle of the room, with a small leather bound journal on it." The description of the desk is "A wooden desk, covered with meticulous carvings of flowers. [if lamp is switched on] A lamp hovers above the desk, illuminating it. [otherwise] A lamp hovers above the desk, waiting to be turned on."
+The desk is in the Library. It is fixed in place. "A lone desk sits in the middle of the room." The description of the desk is "A wooden desk, covered with meticulous carvings of flowers. [if lamp is switched on] A lamp hovers above the desk, illuminating it. [otherwise] A lamp hovers above the desk, waiting to be turned on."
 
 The lamp is on the desk. It is a device. It is fixed in place. Carry out switching on the lamp: now the noun is lit. Carry out switching off the lamp: now the noun is unlit. It is fixed in place.  The description is "The cube-shaped lamp is floating a few inches above the desk, [if switched off] all six exposed sides dark[otherwise] all six exposed sides emitting with a soft white glow[end if]."
 
@@ -258,9 +261,9 @@ The journal is on the desk. It is fixed in place. The description is "A brown le
 Instead of taking the journal:
 	say "You don't feel comfortable taking it."
 
-The shelves are in the Library. They are fixed in place. "Like a library, there are many shelves around the room, filled with books of all kinds.". The description is "What seems like endless books sit on the tall wooden shelves around you. You feel like you might learn something if you read one of them." Understand "bookshelf" and "bookshelves" and "bookcase" and "shelf" as shelves.
+The shelves are in the Library. They are fixed in place. "Like a library, there are many shelves around the room, filled with books of all kinds.". The description is "What seems like endless books sit on the tall wooden shelves around you. One particular book catches your eye." Understand "bookshelf" and "bookshelves" and "bookcase" and "shelf" as shelves.
 
-The books are on the shelves. They are plural-named. They are fixed in place. The description is "Your eyes sweep past the books, but only one captures your interest. It's a green hardcover book, with the cover showing a picture of a white planet. The title reads: 'Creatures of the Ice'. Maybe you could read it.". The odour is "The smell of old books makes you feel nostalgic, but of... what? You're not sure why you feel nostalgic.". The printing is "You flip to a random page and begin reading. [line break][line break][italic type]Skathii[line break][line break]A roughly humanoid species with long slender limbs and short fat bodies, the Skathii are vegetarians, only eating fruit. Their skin has a light green tint, to help regulate their internal temperature, which is highly crucial on their home planet. They have a symbiotic relationship with a parasitic life-form living in their bodies, without which they are unable to move. Not much is known about their culture, except for the fact that they do not seem to worship any deity.[roman type]".   Understand "book" and "green book" and "green hardcover book" and "hardcover book" as books.
+The books are on the shelves. They are plural-named. They are fixed in place. The description is "Your eyes sweep past the books, but only one captures your interest. It's a green hardcover book, with the cover showing a picture of a white planet. The title reads: 'Creatures of the Ice'. Maybe you might learn something if you read it.". The odour is "The smell of old books makes you feel nostalgic, but of... what? You're not sure why you feel nostalgic.". The printing is "You flip to a random page and begin reading. [line break][line break][italic type]Skathii[line break][line break]A roughly humanoid species with long slender limbs and short fat bodies, the Skathii are vegetarians, only eating fruit. Their skin has a light green tint, to help regulate their internal temperature, which is highly crucial on their home planet. They have a symbiotic relationship with a parasitic life-form living in their bodies, without which they are unable to move. Not much is known about their culture, except for the fact that they do not seem to worship any deity.[roman type]".   Understand "book" and "green book" and "green hardcover book" and "hardcover book" as books.
 
 Instead of taking the books:
 	say "You don't feel like taking the books."
@@ -356,6 +359,8 @@ The flower is scenery in the Greenhouse. The odour is "The smell of earth, of pl
 The plants is scenery in the Greenhouse. The description is "Plants of all kinds, as far as the eye can see."
 
 The big tree is scenery in the Greenhouse. The description is "You can't help but be amazed at the size of the tree."
+
+The leaves is scenery in the Greenhouse. The description is "There's so many leaves, you'll probably need a long time to examine all of them.".
 
 A staircase is a kind of door. A staircase is usually open. A staircase is seldom openable. 
 
@@ -537,6 +542,21 @@ Instead of asking Maega about "hi":
 Instead of asking Maega about "hello":
 	say "[italic type]Hello, [player's forename].[roman type][line break]"
 	
+
+Instead of asking Maega about "bts":
+	say "[italic type]BTS, also known as the Bangtan Boys, is a seven-member South Korean boy band formed in Seoul in 2013.[roman type][line break]"
+	
+Instead of asking Maega about "80085":
+	say "[italic type]hy buyao biantai ok[roman type][line break]"
+	
+Instead of asking Maega about "greenhouse":
+	say "[italic type]There is a greenhouse on board Minerva Prime, that is correct, [player's forename].[roman type][line break]"
+	
+Instead of asking Maega about "chogiwa":
+	say "[italic type]Geurae wolf, naega wolf, awoooo[roman type][line break]"
+	
+
+	
 [STEPS]
 
 
@@ -587,7 +607,7 @@ After reading a command when the command prompt is "What is the answer? >":
 		say "[italic type]That's the correct answer. I've turned on the sphere, it will show you the way to continue. But for now, you should go to the greenhouse, and look again when you're there, [player's forename].[roman type][line break][line break] SAM whirrs to life, glowing with pink lights and spinning around the room.";
 		now the command prompt is ">";
 	otherwise:
-		say "[italic type]That is incorrect. I will only turn on the sphere after you've told me the correct answer.[roman type]";
+		say "[italic type]That is incorrect. I will only turn on the sphere after you've told me the correct answer.[roman type][line break]";
 		now the command prompt is "Are you sure you know the answer? (Yes or No) >";
 	reject the player's command.
 	
@@ -632,7 +652,7 @@ After reading a command when the command prompt is "What is the answer? >":
 		say "[italic type]That's the correct answer. I've turned on the sphere, it will show you the way to continue. But for now, you should go to the greenhouse, and look again when you're there, [player's forename].[roman type][line break][line break] SAM whirrs to life, glowing with pink lights and spinning around the room.";
 		now the command prompt is ">";
 	otherwise:
-		say "[italic type]That is incorrect. I will only turn on the sphere after you've told me the correct answer.[roman type]";
+		say "[italic type]That is incorrect. I will only turn on the sphere after you've told me the correct answer.[roman type][line break]";
 		now the command prompt is "Are you sure you know the answer? (Yes or No) >";
 	reject the player's command.
 	
@@ -670,7 +690,6 @@ The Laboratory is a room. "You find yourself in a room you can only describe as 
 
 The tablet is in the Laboratory. It is fixed in place."A tablet is on one of the tables. The brightness of its lit screen catches your eye.". The description is "A white tablet, roughly the size of a book. Its current screen is showing a document. ". The printing is "You read the document on the tablet. [line break][line break][bold type][player's forename] (#HY90LJ)[roman type][line break][italic type]Original life form, cooperating and working smoothly. Needs incentive to work from time to time. Duplicates are all under suspended animation. Brain activity and metabolic rate low, body temperature at −313°C. Subject 4 has been moved to the next room and is currently undergoing testing. Subject 3 has gone into shock after test 6, may need to modify some calculations. Speed of cell regeneration same as before.[roman type][line break][line break] Below that are a few pictures of... yourself? Or rather, the person you saw in the mirror. Some of them are of you handling beakers, some of you writing, some of you standing on the machine in the room, with a soft white glow coming from it. It's one of the final pictures that chills you. In it, you're lying on a table, with your eyes closed. But now, the colour of the face isn't green like in your reflection. The colour of its skin has changed to a light blue, but you're sure it's the same face, the same body. You're not sure why you feel a sense of dread from staring at that picture. [line break][line break] There's also a strange diagram showing what seems to be the machine in the room. It's labelled and what looks like instructions are written beneath the diagram, but you don't fully understand them. It seems that the machine can be used to isolate cells that can regenerate rapidly and replicate the biological data. There's also a function on the machine that lets it speed up cell regeneration by using a kind of light, but it hasn't been perfected yet. It's still in the testing stage.[line break][line break]At the bottom of the page is seven buttons, each labelled with the number 1-7. All the buttons are coloured red, except for the seventh button, which is green.[roman type]". Understand "document" as tablet.
 
-The buttons is in the laboratory.
 After reading the tablet:
 	now the command prompt is "Which button do you press? (1 - 7) >"
 	
@@ -694,7 +713,10 @@ The instruments are scenery in the Laboratory. The description is "So much scien
 
 The platform is scenery in the Laboratory. The description is "A circular platform, raised slightly above the ground. You have no idea what it's used for. A small monitor is on the side of the machine, but it's currently dark. You feel like you shouldn't touch it.". Understand "machine" and "stage" as platform.
 
-The science table is scenery in the Laboratory. The description is "The tables in the room are full of many things.". Understand "table" as science table.
+The science table is scenery in the Laboratory. The description is "The tables in the room are full of many things.". Understand "table" and "tables" as science table.
+
+The cupboard is scenery in the Laboratory. The description is "The doors of the cupboards are transparent. You can see many things inside. All of the cupboards are locked." Understand "cupboards" as cupboard. 
+
 
 After reading the tablet:
 	now secret door is locked.
@@ -713,12 +735,19 @@ Instead of drinking the tea:
 	
 The sliding door is a locked door. "[if locked]A locked black door is blocking your way east. The number '4' is written on a sign next to the door.[otherwise if the player is in the Laboratory]An open black door, slid open to lead east.[otherwise] A closed black door, the only one in the room, prevents you from leaving the room. [end if]". The description is "[if locked]A black door, with no visible way to open it. The number '4' is written next to the door.[otherwise if the player is in Laboratory]It's open now, leading east. [otherwise] The door is closed. [end if]". It is east of the Laboratory and west of the Unknown room. Understand "black door" as sliding door.
 
+
+
+
+
 The Unknown room is a room. "The door slides shut behind you and the light turns on, illuminating the room. You're faced with a room almost identical to the one you woke up in. The walls, the table, the pod in the middle of the room. Only now, the number on the other pod says '4'. Its door is still closed."
 
 Instead of going west in the Unknown Room:
 	say "You try to open the door, but there's no visible way to open it anywhere.";
+	
+Instead of opening the door in the Unknown Room:
+	say "You try to open the door, but there's no visible way to open it anywhere.";
 
-The other pod is in the Unknown Room. Understand "pod" as other pod. The other table is in the Unknown Room.  The description is "A little black table.". Understand "table" as other table. The walls are in the Unknown room. The description is "White, white walls."
+The other pod is in the Unknown Room. Understand "pod" as other pod. The other table is in the Unknown Room.  The description is "A little black table.". Understand "table" as other table. The other walls are in the Unknown room. The description is "White, white walls.". Understand "wall" as other walls.
 
 After choosing notable locale objects: 
 		set locale priority of the other pod to 0.
@@ -732,6 +761,9 @@ After choosing notable locale objects:
 Instead of examining the other pod in the Unknown Room:
 	say "Before you can examine the pod, suddenly, you hear the sound of the door sliding opening behind you. You turn around, only to be faced with a face just plastered on the tablet a few moments before. The green body, the long limbs. You easily recognize it now, after staring at the pictures for so long. They look identical to you, it's even more strange than looking into a mirror. Surprised, they stare at you. Behind them, another two people enter the room. They don't look like you, with their long and red bodies. What you guess is confusion fills their faces, before their expression turns blank. They make a few sounds to each other, then look to the one that looks like you. Somehow you can understand what they're saying. [line break][line break]'[player's forename], sedate the subject and return them to their cryo-chamber. Quickly.'[line break][line break][player's forename]? Are they talking to you? No... the one that looks like you responds. Nodding, they bend down to turn off the sphere. Its lights fade away, and the soft whirr of the motor becomes silent. They start to walk towards you. You stumble back and find yourself hitting the pod. You have to escape from [player's forename]. You have to do something. [line break]";
 	now the command prompt is "What will you do? (Run, Hide or Attack) >";
+	
+
+
 
 After reading a command when the command prompt is "What will you do? (Run, Hide or Attack) >":
 	increment the turn count;
@@ -812,11 +844,11 @@ After reading a command when the command prompt is "You have a pair of scissors 
 
 After reading a command when the command prompt is ">...":
 	if the player's command matches "yes":
-		end the story saying "'...yes,' you hear [player's forename] through the haze in your head, 'I'm sorry, you did your best...' [line break] You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
+		end the story finally saying "'...yes,' you hear [player's forename] through the haze in your head, 'I'm sorry, you did your best...' [line break] You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise if the player's command matches "no":
-		end the story saying "'...no,' you hear [player's forename] through the haze in your head, 'it didn't have to be like this...' [line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
+		end the story finally saying "'...no,' you hear [player's forename] through the haze in your head, 'it didn't have to be like this...' [line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise if the player's command matches the regular expression "[player's forename]":
-		end the story saying "'...[player's forename],' you hear through the haze in your head, 'good job...'[line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
+		end the story finally saying "'...[player's forename],' you hear through the haze in your head, 'good job...'[line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise:
 		say "Yes, you think you should... or, no, it's time to give up...";
 		now the command prompt is ">...";
