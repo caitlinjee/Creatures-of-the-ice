@@ -221,6 +221,8 @@ The mirror is in the Library. It is fixed in place. "Mounted on one of the walls
 
 The desk is in the Library. It is fixed in place. "A lone desk sits in the middle of the room." The description of the desk is "A wooden desk, covered with meticulous carvings of flowers. [if lamp is switched on] A lamp hovers above the desk, illuminating it. [otherwise] A lamp hovers above the desk, waiting to be turned on."
 
+The drawer is scenery in the Library. The Day6 album is in the drawer. The description is "Moonrise is the second studio album by South Korean rock band Day6. It was released by JYP Entertainment on December 6, 2017. The album features 18 tracks, consisting of all 10 tracks that were previously released from July to November 2017 through Every Day6, tracks from Every Day6 December, and final versions of the five remaining songs from their first EP The Day.".
+
 The lamp is on the desk. It is a device. It is fixed in place. Carry out switching on the lamp: now the noun is lit. Carry out switching off the lamp: now the noun is unlit. It is fixed in place.  The description is "The cube-shaped lamp is floating a few inches above the desk, [if switched off] all six exposed sides dark[otherwise] all six exposed sides emitting with a soft white glow[end if]."
 
 After switching on the lamp:
@@ -545,6 +547,9 @@ Instead of asking Maega about "hello":
 
 Instead of asking Maega about "bts":
 	say "[italic type]BTS, also known as the Bangtan Boys, is a seven-member South Korean boy band formed in Seoul in 2013.[roman type][line break]"
+	
+Instead of asking Maega about "day6":
+	say "[italic type]DAY6 is a South Korean boy band formed by JYP Entertainment in 2015. The band is composed of five members: Jae, Sungjin, Young K, Wonpil, and Dowoon. One of their albums is in the drawer in the library. STAN DAY6.[roman type][line break]"
 	
 Instead of asking Maega about "80085":
 	say "[italic type]hy buyao biantai ok[roman type][line break]"
