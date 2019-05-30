@@ -101,7 +101,11 @@ After acting confused for the third turn:
 	
 
 Every turn when the player is not in the Unknown or the player is not in the Unknown Room:
-	if a random chance of 1 in 7 succeeds:
+	if the player is in the Unknown:
+		do nothing;
+	otherwise if the player is in the Unknown Room:
+		do nothing;
+	otherwise if a random chance of 1 in 7 succeeds:
 		say "[one of]You feel like you hear footsteps, but that might just be your imagination. [line break][or]You feel as if you're not alone, but you haven't seen any sign of life so far.[or]You feel a gnawing sense of unease, like someone is watching you.[at random]".
 	
 
@@ -850,8 +854,8 @@ After reading a command when the command prompt is ">...":
 	otherwise if the player's command matches the regular expression "[player's forename]":
 		end the story finally saying "'...[player's forename],' you hear through the haze in your head, 'good job...'[line break]  You feel the cold before you even open your eyes, the biting chill on your skin. But you can't, you can't open your eyes. They're... so heavy, your head is so heavy. Your eyelids slowly open, just a bit. You see... yourself? No, not yourself. You're not [player's forename], you're just a clone created in a lab. You can see [player's forename] staring at you, with maybe a hint of... sadness? You can't concentrate long enough before the wall in front of you closes, enveloping you in darkness. Slowly, slowly, your eyes close too... It would be nice to go back to sleep... ";
 	otherwise:
-		say "Yes, you think you should... or, no, it's time to give up...";
-		now the command prompt is ">...";
+		say "Yes, you think you should... or, no, it's time to give up..."; 
+		now the command prompt is ">..."; 
 		reject the player's command.
 
 	
