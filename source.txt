@@ -18,6 +18,7 @@ The story description is "Project.".
 
 
 
+
 The player's forename is a text that varies. The player's full name is a text that varies. 
 
 When play begins: 
@@ -160,7 +161,6 @@ After wearing a wristband:
 Instead of looking under the table:
 	say "You see a pink object underneath. You reach for it and take it. It seems to be some sort of book, with the words 'BTS' on it. You neither understand nor want to know what is it. You put it back under the table."
 	
-
 Kicking it is an action applying to one visible thing.
 
 Understand "kick [something]" as kicking it.
@@ -168,6 +168,9 @@ Understand "kick [something]" as kicking it.
 Instead of kicking:
 	say "You kick the [noun]. Your only reward is a hurt foot.";
 	
+
+	
+
 
 The black door is a locked door.  It is north of the Unknown and south of the Library. "[if locked]There's a closed black door. [otherwise if the player is in the unknown]The black door is open, leading north.[otherwise]The black door is open, leading south.[end if]". The description of the black door is "[if locked]You don’t see any way to open it. In the place of the doorknob is a keypad with the numbers 1-9 on it. Maybe if you knew the password... [otherwise]The black door is open. [end if]"
 
@@ -274,7 +277,7 @@ Instead of taking the journal:
 
 The shelves are in the Library. They are fixed in place. "Like a library, there are many shelves around the room, filled with books of all kinds.". The description is "What seems like endless books sit on the tall wooden shelves around you. One particular book catches your eye." Understand "bookshelf" and "bookshelves" and "bookcase" and "shelf" as shelves.
 
-The books are on the shelves. They are plural-named. They are fixed in place. The description is "Your eyes sweep past the books, but only one captures your interest. It's a green hardcover book, with the cover showing a picture of a white planet. The title reads: 'Creatures of the Ice'. Maybe you might learn something if you read it.". The odour is "The smell of old books makes you feel nostalgic, but of... what? You're not sure why you feel nostalgic.". The printing is "You flip to a random page and begin reading. [line break][line break][italic type]Skathii[line break][line break]A roughly humanoid species with long slender limbs and short fat bodies, the Skathii are vegetarians, only eating fruit. Their skin has a light green tint, to help regulate their internal temperature, which is highly crucial on their home planet. They have a symbiotic relationship with a parasitic life-form living in their bodies, without which they are unable to move. They have a relatively average lifespan of 500 years. Not much is known about their culture, except for the fact that they do not seem to worship any deity.[roman type]".   Understand "book" and "green book" and "green hardcover book" and "hardcover book" as books.
+The books are on the shelves. They are plural-named. They are fixed in place. The description is "Your eyes sweep past the books, but only one captures your interest. It's a green hardcover book, with the cover showing a picture of a white planet. The title reads: 'Creatures of the Ice'. Maybe you might learn something if you read it.". The odour is "The smell of old books makes you feel nostalgic, but of... what? You're not sure why you feel nostalgic.". The printing is "You flip to a random page and begin reading. [line break][line break][italic type]Skathii[line break][line break]A roughly humanoid species with long slender limbs and short fat bodies, the Skathii are vegetarians, only eating fruit. Their skin has a light green tint, to help regulate their internal temperature, which is highly crucial on their home planet. They have a symbiotic relationship with a parasitic life-form living in their bodies, without which they are unable to move. They have a relatively average lifespan of 500 years. Not much is known about their culture, except for the fact that they do not seem to worship any deity.[roman type]".   Understand "book" and "green book" and "green hardcover book" and "hardcover book" and "creatures of the ice" as books.
 
 Instead of taking the books:
 	say "You don't feel like taking the books."
@@ -445,7 +448,7 @@ The Small Nook is a room. "[if unvisited]It's a tiny room, much much smaller tha
 
 The Maega is a man in the Small Nook. It is fixed in place. The description is "What you thought was an ordinary wall is now a screen, its size the entirety of the wall. The screen is lit blue. It seems to be waiting for any questions you have.". Understand "screen" and "Maega" and "wall" as Maega.
 
-The sphere is a device in the Small nook. "A small sphere sits in the corner of the room." The description is "[if switched off]A black sphere, with the words SAM written on it. You don't know what to do with it. Maybe Maega might know. [otherwise] SAM is now glowing with a soft pink light. [end if]". Understand "SAM" as the sphere.  A persuasion rule: persuasion succeeds.
+The sphere is a device in the Small nook. "A small sphere sits in the corner of the room." The description is "[if switched off]A black sphere, with the words SAM written on it. You don't know what to do with it. Maybe Maega might know. [otherwise] SAM is now glowing with a soft pink light. [end if]". Understand "SAM" and "small sphere" and "black sphere" as the sphere.  A persuasion rule: persuasion succeeds.
 
 The hidden is a device in the Small nook. 
 
@@ -526,6 +529,9 @@ Instead of asking about "Minerva Prime":
 	say "[italic type]A miniature-sized Capital ship, fit for a small crew, presently on course for Janus-7. Current integrity at 100%.[roman type][line break]"
 	
 Instead of asking Maega about "who am i":
+	say "[italic type]You're [player's forename], of course. Are you still in good health? Why must you ask that?[roman type][line break]"
+
+Instead of asking Maega about "who i am":
 	say "[italic type]You're [player's forename], of course. Are you still in good health? Why must you ask that?[roman type][line break]"
 	
 Instead of asking Maega about "me":
