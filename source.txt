@@ -32,8 +32,7 @@ After reading a command when collecting names:
 	if the number of words in the player's command is greater than 5: 
 		say "Please choose a shorter name"; 
 		reject the player's command; 
-	now the player's full name is the player's command; 
-	now the player's forename is word number 1 in the player's command; 
+	now the player's forename is the player's command; 
 	now the command prompt is ">"; 
 	say "Welcome, [player's forename].[paragraph break]"; 
 	say "[banner text]"; 
@@ -603,7 +602,24 @@ Instead of asking Maega about "security question" when the hidden is switched of
 Instead of asking Maega about "question" when the hidden is switched off:
 	say "[italic type]First, [player's forename], show me your wristband, so I can scan it and further understand your current needs.[roman type][line break]";
 	
+Instead of asking Maega about "the question" when the hidden is switched off:
+	say "[italic type]First, [player's forename], show me your wristband, so I can scan it and further understand your current needs.[roman type][line break]";
+	
+Instead of asking Maega about "the security question" when the hidden is switched off:
+	say "[italic type]First, [player's forename], show me your wristband, so I can scan it and further understand your current needs.[roman type][line break]";
+	
+Instead of asking Maega about "my security question" when the hidden is switched off:
+	say "[italic type]First, [player's forename], show me your wristband, so I can scan it and further understand your current needs.[roman type][line break]";
+	
 Instead of asking Maega about "question" when the hidden is switched on:
+	say "[italic type][if the hidden is switched on]Here is the security question you have set.[line break][line break] When I'm alone, I'm faced with my fears. When I look into a mirror, I'm faced with myself. When I'm sitting on top of the world, what am I faced with?[line break][line break] If you have forgotten the answer, you can ask about the security hint that you have set.[otherwise] Show me your wristband first, so I can scan it and further understand your current needs.[roman type][line break]";
+	now the command prompt is "Do you know the answer? (Yes or No) >";
+	
+Instead of asking Maega about "the question" when the hidden is switched on:
+	say "[italic type][if the hidden is switched on]Here is the security question you have set.[line break][line break] When I'm alone, I'm faced with my fears. When I look into a mirror, I'm faced with myself. When I'm sitting on top of the world, what am I faced with?[line break][line break] If you have forgotten the answer, you can ask about the security hint that you have set.[otherwise] Show me your wristband first, so I can scan it and further understand your current needs.[roman type][line break]";
+	now the command prompt is "Do you know the answer? (Yes or No) >";
+	
+Instead of asking Maega about "the security question" when the hidden is switched on:
 	say "[italic type][if the hidden is switched on]Here is the security question you have set.[line break][line break] When I'm alone, I'm faced with my fears. When I look into a mirror, I'm faced with myself. When I'm sitting on top of the world, what am I faced with?[line break][line break] If you have forgotten the answer, you can ask about the security hint that you have set.[otherwise] Show me your wristband first, so I can scan it and further understand your current needs.[roman type][line break]";
 	now the command prompt is "Do you know the answer? (Yes or No) >";
 
@@ -692,6 +708,12 @@ After reading a command when the command prompt is "Are you sure you know the an
 		reject the player's command.
 	
 Instead of asking Maega about "security hint":
+	say "[italic type] You have set your hint to 'Greenhouse'.[roman type][line break]".
+	
+Instead of asking Maega about "the security hint":
+	say "[italic type] You have set your hint to 'Greenhouse'.[roman type][line break]".
+	
+Instead of asking Maega about "the hint":
 	say "[italic type] You have set your hint to 'Greenhouse'.[roman type][line break]".
 	
 Instead of asking Maega about "hint":
