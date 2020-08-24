@@ -3,4 +3,5 @@ Interactive fiction made with Inform 7.
 
 
 Playable online build at:
-https://caitlinjee.github.io/Creatures-of-the-ice/play.html
+
+https://caitlinjee.github.io/Creatures-of-the-ice/
